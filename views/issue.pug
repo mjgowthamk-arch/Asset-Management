@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title Issue Asset
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css")
+
+  body.bg-light
+    .container.mt-4
+
+      h2 Issue Asset
+
+      form(method="POST" action="/add-issue" class="card p-3")
+
+        label Select Employee
+        select.form-control.mb-3(name="employeeName" required)
+          option(value="") -- Select --
+          each emp in employees
+            option(value=emp.name)= emp.name
+
+        label Select Asset
+        select.form-control.mb-3(name="assetName" required)
+          option(value="") -- Select --
+          each asset in assets
+            option(value=asset.assetName)= asset.assetName
+
+        button.btn.btn-primary Issue Asset
+
+      hr
+
+      table.table.table-bordered
+        thead.table-dark
+          tr
+            th #
+            th Employee
+            th Asset
+
+        tbody
+          each issue, index in issues
+            tr
+              td= index + 1
+              td= issue.employeeName
+              td= issue.assetName
