@@ -7,4 +7,4 @@ const sequelize = new Sequelize("asset_db", "postgres", "user", {
   dialect: "postgres"
 });
 
-module.exports = sequelize;
+module.exports = sequelize; 
